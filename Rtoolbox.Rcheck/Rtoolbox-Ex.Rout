@@ -1,0 +1,61 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.1.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "Rtoolbox"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> library('Rtoolbox')
+Loading required package: reshape2
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("OverviewPlot")
+> ### * OverviewPlot
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: OverviewPlot
+> ### Title: Create heatmaps of segmentation values from a DNAcopy object.
+> ### Aliases: OverviewPlot c colorRampPalette
+> 
+> ### ** Examples
+> 
+> ## Generate heatmaps with \code{OverviewPlot}.
+> 
+> ## Not run: OverviewPlot(segment.CNA.object) ## Plot using default settings.
+> ## Not run: OverviewPlot(segment.CNA.object, samples = unique(segment.CNA.object$output$ID)[1:3]) ## Plot only first three samples in segment.CNA.object.
+> ## Not run: OverviewPlot(segment.CNA.object, range.CNA = c(-1, 1)) ## Plot with values from -1 to 1 (outside of this range values are capped).
+> ## Not run: OverviewPlot(segment.CNA.object, color.palette = colorRampPalette(c("blue", "white", "red"))(49)) ## Plot without the extra white in the middle of the palette.
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.254 0.006 0.259 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

@@ -7,3 +7,4 @@ Maintainer: Thomas Kuilman <t.kuilman@nki.nl>
 Depends: reshape2
 Description: Toolbox with R scripts for mostly bioinformatic purposes
 License: GPL-2
+Built: R 3.1.1; ; 2014-10-01 15:42:29 UTC; unix
