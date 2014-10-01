@@ -1,4 +1,4 @@
 Rtoolbox
 ========
 
-Toolbox with R scripts
+Toolbox with R scripts (mostly bioinformatic)
