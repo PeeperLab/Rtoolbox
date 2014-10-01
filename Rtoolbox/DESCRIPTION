@@ -1,0 +1,9 @@
+Package: Rtoolbox
+Title: Toolbox with R scripts
+Version: 1.0
+Date: 2014-10-01
+Author: Thomas Kuilman and Oscar Krijgsman
+Maintainer: Thomas Kuilman <t.kuilman@nki.nl>
+Depends: 
+Description: Toolbox with R scripts for mostly bioinformatic purposes
+License: GPL-2
