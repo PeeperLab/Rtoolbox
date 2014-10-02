@@ -27,7 +27,7 @@ The color.palette argument can be used to customize the colors used for plotting
 
 ###### Example OverviewPlot
 
-For the example of the output of OverviewPlot, the following command was used (segment.CNA.object refers to a DNAcopy object):
+For the example of the output of OverviewPlot, the following command was used:
 
     OverviewPlot(DNAcopy.object, unique(DNAcopy.object$output$ID)[1:2], range.CNA = c(-1,1))
 
