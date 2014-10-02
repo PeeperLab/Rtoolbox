@@ -9,7 +9,8 @@ Create heatmaps of segmentation values from a DNAcopy object.
 Creates color-based plots of the segmentation values from a provided DNAcopy object.
 }
 \usage{
-OverviewPlot(DNAcopy.object, samples, range.CNA = c(-2, 2), color.palette = colorRampPalette(c("blue", "white", "red"))(49))
+OverviewPlot(DNAcopy.object, samples, range.CNA = c(-2, 2), 
+              color.palette = colorRampPalette(c("blue", "white", "red"))(49))
 }
 \arguments{
   \item{DNAcopy.object}{DNAcopy object with the segmentation values that need to be plotted.}
@@ -24,7 +25,7 @@ OverviewPlot(DNAcopy.object, samples, range.CNA = c(-2, 2), color.palette = colo
 Thomas Kuilman (t.kuilman@nki.nl)
 }
 \examples{
-## Generate heatmaps with \code{\link{OverviewPlot}}.
+## Generate heatmaps:
 
 \dontrun{OverviewPlot(segment.CNA.object) ## Plot using default settings.}
 \dontrun{OverviewPlot(segment.CNA.object, samples = unique(segment.CNA.object$output$ID)[1:3]) ## Plot only first three samples in segment.CNA.object.}
