@@ -17,7 +17,7 @@ Load the Rtoolbox package in R using:
 
 Rtoolbox contains the following functions:
 
-## OverviewPlot
+#### OverviewPlot
 
 OverviewPlot will create color-based plots of segmentation values as found in the provided DNAcopy object.
 The heatmap plotting function has three optional arguments: samples, range.CNA, and color.palette.
@@ -27,6 +27,6 @@ The color.palette argument can be used to customize the colors used for plotting
 
     OverviewPlot(DNAcopy.object, samples, range.CNA = c(-2, 2), color.palette = colorRampPalette(c("blue", "white", "white", "red"))(49))
 
-### Example
+###### Example
 
 ![Oops missing picture!](https://raw.githubusercontent.com/PeeperLab/Rtoolbox/628ce1d999c4a19f3e80efe97d892aeadd1c60b8/images/Rplot.png "OverviewPlot")
