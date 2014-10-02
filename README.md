@@ -29,6 +29,6 @@ The color.palette argument can be used to customize the colors used for plotting
 
 For the example of the output of OverviewPlot, the following command was used (segment.CNA.object refers to a DNAcopy object):
 
-    OverviewPlot(segment.CNA.object, unique(segment.CNA.object$output$ID)[1:2], range.CNA = c(-1,1))
+    OverviewPlot(DNAcopy.object, unique(DNAcopy.object$output$ID)[1:2], range.CNA = c(-1,1))
 
 ![Oops missing picture!](https://raw.githubusercontent.com/PeeperLab/Rtoolbox/628ce1d999c4a19f3e80efe97d892aeadd1c60b8/images/Rplot.png "OverviewPlot")
