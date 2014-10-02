@@ -25,8 +25,10 @@ The samples argument can be used to specify which samples need to be included in
 The range.CNA range specifies the range of values that will be plotted; segmentation values outside of this range are capped to either the minimum or the maximum of range.CNA.
 The color.palette argument can be used to customize the colors used for plotting.
 
-    OverviewPlot(DNAcopy.object, samples, range.CNA = c(-2, 2), color.palette = colorRampPalette(c("blue", "white", "white", "red"))(49))
+###### Example OverviewPlot
 
-###### Example
+For the example of the output of OverviewPlot, the following command was used (segment.CNA.object refers to a DNAcopy object):
+
+    OverviewPlot(segment.CNA.object, unique(segment.CNA.object$output$ID)[1:2], range.CNA = c(-1,1))
 
 ![Oops missing picture!](https://raw.githubusercontent.com/PeeperLab/Rtoolbox/628ce1d999c4a19f3e80efe97d892aeadd1c60b8/images/Rplot.png "OverviewPlot")
