@@ -1,4 +1,5 @@
-OverviewPlot <- function(DNAcopy.object, samples, range.CNA = c(-2, 2), color.palette = colorRampPalette(c("blue", "white", "red"))(49)) {
+OverviewPlot <- function(DNAcopy.object, samples, range.CNA = c(-2, 2),
+                         color.palette = colorRampPalette(c("blue", "white", "red"))(49)) {
 	
 	## Use all samples by default
 	if(missing(samples)) {
@@ -37,7 +38,7 @@ OverviewPlot <- function(DNAcopy.object, samples, range.CNA = c(-2, 2), color.pa
 		, yaxt = "n", xlim = c(0, 0.1), width = 0.1, las = 2)
 	for(i in 1:sample.number) {
 		barplot(as.matrix(DNAcopy.object.cast[, 6 + i, drop = FALSE])
-			, col = color.palette[1 + (DNAcopy.object.cast$seg.mean - range.CNA[1]) / range.factor * 48], border = NA
+			, col = color.palette[1 + (DNAcopy.object.cast$seg.mean - range.CNA[1]) / range.factor * (length(color.palette) - 1)], border = NA
 			, yaxt = "n", xlim = c(0, 0.1), width = 0.1, las = 2)
 	}
 	barplot(matrix(rep(1, length(color.palette)), ncol = 1, dimnames = list(NULL, paste(range.CNA, collapse = " to ")))
