@@ -107,7 +107,7 @@ replotGSEA <- function(path, gene.set, class.name) {
 		           gsea.enrichment.score, "\nNormalized ES:",
 		           gsea.normalized.enrichment.score), adj = c(0, 0))
 	} else {
-		text(length(gsea.rnk$metric) * 0.99, plot.coordinates[4],
+		text(length(gsea.rnk$metric) * 0.99, plot.coordinates[4] - ((plot.coordinates[4] - plot.coordinates[3]) * 0.03),
 		     paste("Nominal p-value:", gsea.p.value, "\nFDR:", gsea.fdr, "\nES:",
 		           gsea.enrichment.score, "\nNormalized ES:",
 		           gsea.normalized.enrichment.score, "\n"), adj = c(1, 1))
