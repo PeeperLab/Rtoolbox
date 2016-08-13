@@ -34,7 +34,7 @@ For the example of the output of ReplotGSEA, the following command was used:
 
     ReplotGSEA(path = path, gene.set = gene.set, class.name = class.name)
 
-<img src="https://raw.githubusercontent.com/PeeperLab/Rtoolbox/master/images/replotGSEA.png" alt="ReplotGSEA" style="width: 400px;"/>
+<img src="https://raw.githubusercontent.com/PeeperLab/Rtoolbox/master/images/replotGSEA.png" alt="ReplotGSEA" width="400px">
 
 #### OverviewPlot
 
