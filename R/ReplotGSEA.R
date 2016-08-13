@@ -1,6 +1,6 @@
 ## Script by Thomas Kuilman
 ## path argument: path to output folder of analysis (e.g. PATH/my_analysis.GseaPreranked.1470948568349)
-## gene.set argument: name of the gene set (e.g. V$AP1_Q2)
+## gene.set argument: name of the gene set (e.g. V$AP1_Q2). Is used in a grep command, so apprximate matching is used
 ## class.name: the name of the class / variable to which genes have been correlated (e.g. drug-treatment)
 
 replotGSEA <- function(path, gene.set, class.name) {
