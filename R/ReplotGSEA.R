@@ -98,9 +98,9 @@ replotGSEA <- function(path, gene.set, class.name) {
 	
 	# Create plots
 	par(mar = c(0, 5, 2, 2))
-	plot(c(1, gsea.hit.indices), c(0, gsea.es.profile), type = "l", col = "red",
-	     lwd = 1.5, xaxt = "n", xaxs = "i", xlab = "",
-	     ylab = "Enrichment score (ES)",
+	plot(c(1, gsea.hit.indices, length(gsea.rnk$metric)),
+	     c(0, gsea.es.profile, 0), type = "l", col = "red", lwd = 1.5, xaxt = "n",
+	     xaxs = "i", xlab = "", ylab = "Enrichment score (ES)",
 	     main = list(gsea.gene.set, font = 1, cex = 1),
 	     panel.first = {
 	        abline(h = seq(round(min(gsea.es.profile), digits = 1),
