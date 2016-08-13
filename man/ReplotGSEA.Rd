@@ -25,7 +25,8 @@ desktop tool javaGSEA.
 Thomas Kuilman (t.kuilman@nki.nl)
 }
 \examples{
-## Generate heatmaps:
+## Recreate GSEA plot:
 
 \dontrun{ReplotGSEA(path = path, gene.set = "V$AP1_Q2",
 class.name = "Drug treatment")}
+}
