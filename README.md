@@ -34,7 +34,7 @@ For the example of the output of ReplotGSEA, the following command was used:
 
     ReplotGSEA(path = path, gene.set = gene.set, class.name = class.name)
 
-![](https://raw.githubusercontent.com/PeeperLab/Rtoolbox/master/images/replotGSEA.png "ReplotGSEA")
+<img src="https://raw.githubusercontent.com/PeeperLab/Rtoolbox/master/images/replotGSEA.png" alt="ReplotGSEA" style="width: 600px;"/>
 
 #### OverviewPlot
 
@@ -50,4 +50,4 @@ For the example of the output of OverviewPlot, the following command was used:
 
     OverviewPlot(DNAcopy.object, unique(DNAcopy.object$output$ID)[1:2], range.CNA = c(-1,1))
 
-![](https://raw.githubusercontent.com/PeeperLab/Rtoolbox/628ce1d999c4a19f3e80efe97d892aeadd1c60b8/images/Rplot.png "OverviewPlot")
+<img src="https://raw.githubusercontent.com/PeeperLab/Rtoolbox/628ce1d999c4a19f3e80efe97d892aeadd1c60b8/images/Rplot.png" alt="ReplotGSEA" style="width: 600px;"/>
