@@ -1,11 +1,7 @@
 ## Script by Thomas Kuilman
-
-## Set path
-path <- "~/Dropbox/Thomas/Bioinformatics/R_scripts/Kong_analysis_RNAseq_drug_holiday/GSEA/my_analysis.GseaPreranked.1470948568349_MITF_HOEK_TARGETS"
-gene.set = "E2F"
-class.name = "Drug holiday"
-
-path <- "~/Dropbox/Thomas/Bioinformatics/R_scripts/Kong_analysis_RNAseq_drug_holiday/GSEA/my_analysis.GseaPreranked.1470949894207_C3"
+## path argument: path to output folder of analysis (e.g. PATH/my_analysis.GseaPreranked.1470948568349)
+## gene.set argument: name of the gene set (e.g. V$AP1_Q2)
+## class.name: the name of the class / variable to which genes have been correlated (e.g. drug-treatment)
 
 replotGSEA <- function(path, gene.set, class.name) {
 	
@@ -144,4 +140,3 @@ replotGSEA <- function(path, gene.set, class.name) {
 	par(def.par)
 
 }
-replotGSEA(path, gene.set)
