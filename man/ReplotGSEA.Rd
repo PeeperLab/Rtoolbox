@@ -1,5 +1,5 @@
-\name{ReplotGSEA}
-\alias{ReplotGSEA}
+\name{replotGSEA}
+\alias{replotGSEA}
 \title{
 Replot output from the desktop tool javaGSEA.
 }
@@ -7,7 +7,7 @@ Replot output from the desktop tool javaGSEA.
 Creates GSEA plots from the output of the desktop tool javaGSEA.
 }
 \usage{
-ReplotGSEA(path, gene.set, class.name)
+replotGSEA(path, gene.set, class.name)
 }
 \arguments{
   \item{path}{path to the output folder of javaGSEA}
@@ -18,7 +18,7 @@ ReplotGSEA(path, gene.set, class.name)
   file or that is used to pre-rank the data; example: "drug treatment").}
 }
 \details{
-\code{\link{ReplotGSEA}} will recreate a GSEA plot from the output of the
+\code{\link{replotGSEA}} will recreate a GSEA plot from the output of the
 desktop tool javaGSEA.
 }
 \author{
@@ -27,6 +27,6 @@ Thomas Kuilman (t.kuilman@nki.nl)
 \examples{
 ## Recreate GSEA plot:
 
-\dontrun{ReplotGSEA(path = path, gene.set = "V$AP1_Q2",
+\dontrun{replotGSEA(path = path, gene.set = "V$AP1_Q2",
 class.name = "Drug treatment")}
 }

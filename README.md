@@ -17,9 +17,9 @@ Load the Rtoolbox package in R using:
 
 Rtoolbox contains the following functions:
 
-#### ReplotGSEA
+#### replotGSEA
 
-ReplotGSEA re-plots data from the javaGSEA desktop version in R. The function
+replotGSEA re-plots data from the javaGSEA desktop version in R. The function
 takes three arguments: `path`, the path to the javaGSEA output folder;
 `gene.set`, which is the name of the gene set you want to plot (note:
 approximate matching is used in a grep-function to determine the appropriate
@@ -28,13 +28,13 @@ expression has been matched (i.e., the description of the variable that is
 specified in the .cls file or that is used to pre-rank the data; example:
 "drug treatment").
 
-###### Example ReplotGSEA
+###### Example replotGSEA
 
-For the example of the output of ReplotGSEA, the following command was used:
+For the example of the output of replotGSEA, the following command was used:
 
-    ReplotGSEA(path = path, gene.set = gene.set, class.name = class.name)
+    replotGSEA(path = path, gene.set = gene.set, class.name = class.name)
 
-<img src="https://raw.githubusercontent.com/PeeperLab/Rtoolbox/master/images/replotGSEA.png" alt="ReplotGSEA" width="600px">
+<img src="https://raw.githubusercontent.com/PeeperLab/Rtoolbox/master/images/replotGSEA.png" alt="replotGSEA" width="600px">
 
 #### OverviewPlot
 
@@ -50,4 +50,4 @@ For the example of the output of OverviewPlot, the following command was used:
 
     OverviewPlot(DNAcopy.object, unique(DNAcopy.object$output$ID)[1:2], range.CNA = c(-1,1))
 
-<img src="https://raw.githubusercontent.com/PeeperLab/Rtoolbox/628ce1d999c4a19f3e80efe97d892aeadd1c60b8/images/Rplot.png" alt="ReplotGSEA" width="600px">
+<img src="https://raw.githubusercontent.com/PeeperLab/Rtoolbox/628ce1d999c4a19f3e80efe97d892aeadd1c60b8/images/Rplot.png" alt="replotGSEA" width="600px">

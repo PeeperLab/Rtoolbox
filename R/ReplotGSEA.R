@@ -34,10 +34,15 @@ replotGSEA <- function(path, gene.set, class.name) {
 	gsea.edb <- gsea.edb[grep("<DTG", gsea.edb)]
 	
 	# Select the right gene set
-	gsea.edb <- gsea.edb[grep(gene.set, gsea.edb, fixed = TRUE)]
-	if(length(gsea.edb) == 0) {
-		stop("The gene set name was not found, please provide a correct name")
+	if (length(gsea.edb) == 0) {
+		stop(paste("The gene set name was not found, please provide",
+		     "a correct name"))
 	}
+	if (length(grep(gene.set, gsea.edb, fixed = TRUE)) > 1) {
+		warning(paste("More than 1 gene set matched the gene.set",
+		              "argument; the first match is plotted"))
+	}
+	gsea.edb <- gsea.edb[grep(gene.set, gsea.edb, fixed = TRUE)[1]]
 	
 	# Get template name
 	gsea.edb <- gsub(".*TEMPLATE=(.*)", "\\1", gsea.edb)
@@ -97,9 +102,12 @@ replotGSEA <- function(path, gene.set, class.name) {
 	     lwd = 1.5, xaxt = "n", xaxs = "i", xlab = "",
 	     ylab = "Enrichment score (ES)",
 	     main = list(gsea.gene.set, font = 1, cex = 1),
-	     panel.first = abline(h = seq(round(min(gsea.es.profile), digits = 1),
-	                                  max(gsea.es.profile), 0.1),
-	                          col = "gray95", lty = 2))
+	     panel.first = {
+	        abline(h = seq(round(min(gsea.es.profile), digits = 1),
+	               max(gsea.es.profile), 0.1),
+	               col = "gray95", lty = 2)
+	     	abline(h = 0, col = "gray50", lty = 2)
+	     })
 	plot.coordinates <- par("usr")
 	if(gsea.enrichment.score < 0) {
 		text(length(gsea.rnk$metric) * 0.01, plot.coordinates[3] * 0.98,
