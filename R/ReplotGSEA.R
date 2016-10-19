@@ -131,7 +131,9 @@ replotGSEA <- function(path, gene.set, class.name) {
   abline(v = gsea.hit.indices, lwd = 0.75)
   
   par(mar = c(0, 5, 0, 2))
-  rank.colors <- ceiling((gsea.rnk$metric + 1) * 128)
+  rank.colors <- gsea.rnk$metric - min(gsea.rnk$metric)
+  rank.colors <- rank.colors / max(rank.colors)
+  rank.colors <- ceiling(rank.colors * 255 + 1)
   rank.colors <- colorRampPalette(c("blue", "white", "red"))(256)[rank.colors]
   # Use rle to prevent too many objects
   rank.colors <- rle(rank.colors)
