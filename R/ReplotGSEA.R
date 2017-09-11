@@ -8,7 +8,7 @@
 ## class.name: the name of the class / variable to which genes have been correlated (e.g. drug-treatment)
 ## metric.range: the range of the metric; defaults to c(-1, 1)
 
-replotGSEA <- function(path, gene.set, class.name, metric.range) {
+replotGSEA <- function(path, gene.set, class.name, metric.range = c(-1, 1)) {
   
   if(missing(path)) {
     stop("Path argument is required")
