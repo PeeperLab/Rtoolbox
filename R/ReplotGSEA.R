@@ -138,7 +138,12 @@ replotGSEA <- function(path, gene.set, class.name, metric.range) {
   rank.colors <- gsea.rnk$metric - metric.range[1]
   rank.colors <- rank.colors / (metric.range[2] - metric.range[1])
   rank.colors <- ceiling(rank.colors * 255 + 1)
-  rank.colors <- colorRampPalette(c("blue", "white", "red"))(256)[rank.colors]
+  tryCatch({
+    rank.colors <- colorRampPalette(c("blue", "white", "red"))(256)[rank.colors]
+  }, error = function(e) {
+    stop("Please use the metric.range argument to provide a metric range that",
+         "includes all metric values")
+  })
   # Use rle to prevent too many objects
   rank.colors <- rle(rank.colors)
   barplot(matrix(rank.colors$lengths), col = rank.colors$values, border = NA, horiz = TRUE, xaxt = "n", xlim = c(1, length(gsea.rnk$metric)))
