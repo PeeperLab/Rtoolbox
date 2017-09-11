@@ -6,8 +6,9 @@
 ## Leading "V$" from gene set names are stripped to allow using the grep command.
 ## In case of multiple grep matches a warning is given and the first option is plotted.
 ## class.name: the name of the class / variable to which genes have been correlated (e.g. drug-treatment)
+## metric.range: the range of the metric; defaults to c(-1, 1)
 
-replotGSEA <- function(path, gene.set, class.name) {
+replotGSEA <- function(path, gene.set, class.name, metric.range) {
   
   if(missing(path)) {
     stop("Path argument is required")
@@ -131,8 +132,8 @@ replotGSEA <- function(path, gene.set, class.name) {
   abline(v = gsea.hit.indices, lwd = 0.75)
   
   par(mar = c(0, 5, 0, 2))
-  rank.colors <- gsea.rnk$metric - min(gsea.rnk$metric)
-  rank.colors <- rank.colors / max(rank.colors)
+  rank.colors <- gsea.rnk$metric - metric.range[1]
+  rank.colors <- rank.colors / metric.range[2]
   rank.colors <- ceiling(rank.colors * 255 + 1)
   rank.colors <- colorRampPalette(c("blue", "white", "red"))(256)[rank.colors]
   # Use rle to prevent too many objects
@@ -148,7 +149,7 @@ replotGSEA <- function(path, gene.set, class.name) {
   rank.metric <- rle(round(gsea.rnk$metric, digits = 2))
   plot(gsea.rnk$metric, type = "n", xaxs = "i",
 	     xlab = "Rank in ordered gene list", xlim = c(0, length(gsea.rnk$metric)),
-	     ylim = c(-1, 1), yaxs = "i",
+	     ylim = metric.range, yaxs = "i",
 	     ylab = if(gsea.metric == "None") {"Ranking metric"} else {gsea.metric},
 	     panel.first = abline(h = seq(-0.5, 0.5, 0.5), col = "gray95", lty = 2))
 
