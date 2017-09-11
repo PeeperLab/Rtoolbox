@@ -26,7 +26,7 @@ replotGSEA <- function(path, gene.set, class.name, metric.range) {
   gsea.rnk <- read.delim(file = path.rnk, header = FALSE)
   colnames(gsea.rnk) <- c("hgnc.symbol", "metric")
   if (missing(metric.range)) {
-    metric.range <- c(min(gsea.rnk$metric), max(gsea.rnk$metric)))
+    metric.range <- c(min(gsea.rnk$metric), max(gsea.rnk$metric))
   }  
   
   ## Load .edb data
