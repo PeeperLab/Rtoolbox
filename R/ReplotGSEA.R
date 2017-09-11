@@ -6,17 +6,17 @@
 ## Leading "V$" from gene set names are stripped to allow using the grep command.
 ## In case of multiple grep matches a warning is given and the first option is plotted.
 ## class.name: the name of the class / variable to which genes have been correlated (e.g. drug-treatment)
-## metric.range: the range of the metric; defaults to c(-1, 1)
+## metric.range: the range of the metric; defaults to [min(DEFINED RANGE), max(DEFINED RANGE)]
 
-replotGSEA <- function(path, gene.set, class.name, metric.range = c(-1, 1)) {
+replotGSEA <- function(path, gene.set, class.name, metric.range) {
   
-  if(missing(path)) {
+  if (missing(path)) {
     stop("Path argument is required")
   }
   if (!file.exists(path)) {
     stop("The path folder could not be found. Please change the path")
   }
-  if(missing(gene.set)) {
+  if (missing(gene.set)) {
     stop("Gene set argument is required")
   }
 
@@ -25,6 +25,9 @@ replotGSEA <- function(path, gene.set, class.name, metric.range = c(-1, 1)) {
                          pattern = ".rnk$", full.names = TRUE)
   gsea.rnk <- read.delim(file = path.rnk, header = FALSE)
   colnames(gsea.rnk) <- c("hgnc.symbol", "metric")
+  if (missing(metric.range)) {
+    metric.range <- c(min(gsea.rnk$metric), max(gsea.rnk$metric)))
+  }  
   
   ## Load .edb data
   path.edb <- list.files(path = file.path(path, "edb"),
@@ -135,11 +138,7 @@ replotGSEA <- function(path, gene.set, class.name, metric.range = c(-1, 1)) {
   rank.colors <- gsea.rnk$metric - metric.range[1]
   rank.colors <- rank.colors / (metric.range[2] - metric.range[1])
   rank.colors <- ceiling(rank.colors * 255 + 1)
-  tryCatch({
-    rank.colors <- colorRampPalette(c("blue", "white", "red"))(256)[rank.colors]
-  }, error = function(e) {
-    stop("Please define the correct metric range using the metric range argument")
-  })
+  rank.colors <- colorRampPalette(c("blue", "white", "red"))(256)[rank.colors]
   # Use rle to prevent too many objects
   rank.colors <- rle(rank.colors)
   barplot(matrix(rank.colors$lengths), col = rank.colors$values, border = NA, horiz = TRUE, xaxt = "n", xlim = c(1, length(gsea.rnk$metric)))
