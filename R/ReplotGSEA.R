@@ -151,7 +151,9 @@ replotGSEA <- function(path, gene.set, class.name, metric.range = c(-1, 1)) {
 	     xlab = "Rank in ordered gene list", xlim = c(0, length(gsea.rnk$metric)),
 	     ylim = metric.range, yaxs = "i",
 	     ylab = if(gsea.metric == "None") {"Ranking metric"} else {gsea.metric},
-	     panel.first = abline(h = seq(-0.5, 0.5, 0.5), col = "gray95", lty = 2))
+	     panel.first = abline(h = seq(metric.range[1] / 2,
+	                                  metric.range[2] - metric.range[1] / 4,
+	                                  metric.range[2] / 2), col = "gray95", lty = 2))
 
   barplot(rank.metric$values, col = "lightgrey", lwd = 0.1, xaxs = "i",
        xlab = "Rank in ordered gene list", xlim = c(0, length(gsea.rnk$metric)),
