@@ -7,8 +7,10 @@
 ## In case of multiple grep matches a warning is given and the first option is plotted.
 ## class.name: the name of the class / variable to which genes have been correlated (e.g. drug-treatment)
 ## metric.range: the range of the metric; defaults to [min(DEFINED RANGE), max(DEFINED RANGE)]
+## enrichment.score.range: the range of the enrichment score; defaults to [min(ENRICHMENT SCORE), max(ENRICHMENT SCORE)]
 
-replotGSEA <- function(path, gene.set, class.name, metric.range) {
+replotGSEA <- function(path, gene.set, class.name, metric.range,
+                       enrichment.score.range) {
   
   if (missing(path)) {
     stop("Path argument is required")
@@ -92,6 +94,11 @@ replotGSEA <- function(path, gene.set, class.name, metric.range) {
   gsea.es.profile <- gsub("ES_PROFILE=", "", gsea.es.profile)
   gsea.es.profile <- as.numeric(gsea.es.profile)
   
+  # Set enrichment score range
+  if (missing(enrichment.score.range)) {
+    enrichment.score.range <- c(min(gsea.es.profile), max(gsea.es.profile))
+  }
+  
   
   ## Create GSEA plot
   # Save default for resetting
@@ -109,10 +116,11 @@ replotGSEA <- function(path, gene.set, class.name, metric.range) {
   plot(c(1, gsea.hit.indices, length(gsea.rnk$metric)),
        c(0, gsea.es.profile, 0), type = "l", col = "red", lwd = 1.5, xaxt = "n",
        xaxs = "i", xlab = "", ylab = "Enrichment score (ES)",
+       ylim = enrichment.score.range,
        main = list(gsea.gene.set, font = 1, cex = 1),
        panel.first = {
-          abline(h = seq(round(min(gsea.es.profile), digits = 1),
-                 max(gsea.es.profile), 0.1),
+          abline(h = seq(round(enrichment.score.range[1], digits = 1),
+                         enrichment.score.range[2], 0.1),
                  col = "gray95", lty = 2)
          abline(h = 0, col = "gray50", lty = 2)
        })
